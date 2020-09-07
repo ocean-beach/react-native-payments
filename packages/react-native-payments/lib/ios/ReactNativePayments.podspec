@@ -6,21 +6,20 @@ giturl = package["repository"]
 
 Pod::Spec.new do |s|
   s.name         = "ReactNativePayments"
-  s.version      = version
+  s.version      = package["version"]
   s.summary      = "react-native-payments"
   s.description  = <<-DESC
                   Native Payments (Google and Apple Pay) from React-Native
                    DESC
-  s.homepage     = giturl
+  s.homepage     = giturl.to_s
   s.license      = "MIT"
-  s.author       = "Naoufal Kadhom"
-  s.platform     = :ios, "7.0"
-  s.source       = { :git => giturl + ".git", :tag => version }
-  s.source_files  = "*.{h,m}"
+  s.authors      = "Naoufal Kadhom"
+  s.platform     = :ios, '10.0'
+  s.source       = { :git => giturl.to_s + ".git", :tag => version }
+  s.source_files  = 'lib/ios/*.{h,m}'
   s.requires_arc = true
-
-
-  s.dependency "React"
-  #s.dependency "others"
+  s.dependency 'React'
+  s.dependency 'Stripe'
+  s.dependency 'Braintree'
 
 end
